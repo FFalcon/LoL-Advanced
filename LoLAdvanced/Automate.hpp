@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <list>
 
 class CAutomate
 {
@@ -11,7 +12,8 @@ public:
 	void OnGameLoop( void );
 
 private:
-	DWORD	m_dwAttackTick;
+	DWORD	m_dwLastBestTick;
 	DWORD	m_dwLastCheck;
-	std::map<DWORD, float>	m_cUnitHealth;
+	bool    m_bInUse;
+	std::map<DWORD, std::list<float>>	m_cUnitHealth;
 };
